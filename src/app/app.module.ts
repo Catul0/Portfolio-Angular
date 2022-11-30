@@ -11,6 +11,7 @@ import { TargetaInformacionComponent } from './components/targeta-informacion/ta
 import { TargetaProyectosComponent } from './components/targeta-proyectos/targeta-proyectos.component';
 import { ItemProyectoComponent } from './components/item-proyecto/item-proyecto.component';
 import { AgregarProyectoComponent } from './components/agregar-proyecto/agregar-proyecto.component';
+import { BotonAddComponent } from './components/boton-add/boton-add.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AgregarProyectoComponent } from './components/agregar-proyecto/agregar-
     TargetaInformacionComponent,
     TargetaProyectosComponent,
     ItemProyectoComponent,
-    AgregarProyectoComponent
+    AgregarProyectoComponent,
+    BotonAddComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 <form 
     class="add-form"
     (ngSubmit)="onSubmit()"
+    *ngIf="showAddProyect"
 >
     <div class="form-control">
         <label for="title">Nombre del Proyecto</label>

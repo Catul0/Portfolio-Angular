@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Proyecto} from '../../Portfolio';
 import { ProyectosService } from '../../service/proyectos.service';
+import { UiService } from '../../service/ui.service';
+import { Subscription }  from 'rxjs';
 @Component({
   selector: 'app-targeta-proyectos',
   templateUrl: './targeta-proyectos.component.html',
@@ -8,10 +10,15 @@ import { ProyectosService } from '../../service/proyectos.service';
 })
 export class TargetaProyectosComponent implements OnInit {
   proyectos: Proyecto[] = [];
+  showAddProyect: boolean=false;
+  subscription?: Subscription;
 
   constructor(
-    private proyectosService: ProyectosService
-  ) { }
+    private proyectosService: ProyectosService,
+    private uiServise: UiService
+  ) { 
+    this.subscription = this.uiServise.onToggle().subscribe(value => this.showAddProyect = value)
+  }
 
   ngOnInit(): void {
     this.proyectosService.getProyecto().subscribe( proyectos =>
@@ -31,6 +38,9 @@ export class TargetaProyectosComponent implements OnInit {
     this.proyectosService.addProyect(proyecto).subscribe((proyecto)=>(
       this.proyectos.push(proyecto)
     ))
+  }
+  abrirAgregarProyecto(){
+    this.uiServise.toggleAddProyect();
   }
 
 }

@@ -4,13 +4,19 @@
 >
     <h3 
         class="card-header text-center text" 
-        style="margin-top: 20px;margin-bottom: 50px;"
+        style="margin-top: 20px;margin-bottom: 60px;"
     >
         Proyectos
     </h3>
+    <app-boton-add
+        text="{{showAddProyect ? 'Cerrar': 'Agregar Proyecto'}}"
+        (btnAddCLick)="abrirAgregarProyecto()"
+    ></app-boton-add>
+
     <app-agregar-proyecto
         (onAddProyect)="addProyect($event)"
     ></app-agregar-proyecto>
+
     <div class="row row-cols-1 row-cols-md-2 g-4 container-fluid" >
         <app-item-proyecto
             style="margin-top: 20px;"
